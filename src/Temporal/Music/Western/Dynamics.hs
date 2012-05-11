@@ -2,7 +2,7 @@ module Temporal.Music.Western.Dynamics (
     Dynamics(..), 
     -- * Levels
     pppiano, ppiano, piano, mpiano, mforte, forte, fforte, ffforte,
-    -- * Shortcuts
+    -- * Shortcuts to set dynamics level.
     ppp', pp', p', mp', mf', f', ff', fff')
 where
 

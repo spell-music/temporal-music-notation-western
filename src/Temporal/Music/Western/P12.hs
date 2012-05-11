@@ -1,8 +1,13 @@
+-- | Western twelve-tone scale.
 module Temporal.Music.Western.P12(
     module Temporal.Music,
     module Temporal.Music.Western.Dynamics,
     Chromatic(..), P12, Score12, Note12,
-    -- * Steps    
+    -- * Steps
+    -- | Step defines a value of type score (hence @Track@), so we can 
+    -- transform them on the fly:
+    --
+    -- > qn $ line [forte c, d, e, low b, forte $ bn d]
     c, d, e, f, g, a, b, 
     cs, ds, es, fs, gs, as, bs,
     cf, df, ef, ff, gf, af, bf,
