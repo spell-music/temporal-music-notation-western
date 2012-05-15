@@ -1,7 +1,6 @@
 -- | Bohlen-Pierce tones
 module Temporal.Music.Western.P13(
-        module Temporal.Music,
-        module Temporal.Music.Western.Dynamics,
+        module Temporal.Music.Western,
         -- * Tones
         BohlenPierce(..), P13, Note13, Score13,
 
@@ -15,8 +14,7 @@ module Temporal.Music.Western.P13(
 where
 
 import Data.Finite
-import Temporal.Music
-import Temporal.Music.Western.Dynamics
+import Temporal.Music.Western
 import Temporal.Music.Scales(eqBP, justBP)
 
 type P13 = BohlenPierce
@@ -43,7 +41,7 @@ type Note13 a   = Note Dynamics BohlenPierce a
 type Score13 a  = Score (Note13 a)
 
 tone :: P13 -> Score13 a
-tone = temp . note MPiano 
+tone = temp . note Mezzo 
 
 c  = tone C  
 cs = tone Cs 

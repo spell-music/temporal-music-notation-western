@@ -1,7 +1,6 @@
 -- | Western twelve-tone scale.
 module Temporal.Music.Western.P12(
-    module Temporal.Music,
-    module Temporal.Music.Western.Dynamics,
+    module Temporal.Music.Western,
     Chromatic(..), P12, Score12, Note12,
     -- * Steps
     -- | Step defines a value of type score (hence @Track@), so we can 
@@ -32,7 +31,7 @@ import Data.Finite
 import Temporal.Music
 import Temporal.Music.Scales(eqt, pyth, hind, hindFs, hindGb)
 
-import Temporal.Music.Western.Dynamics
+import Temporal.Music.Western
 
 -- twelve tone
 type P12 = Chromatic 
@@ -54,7 +53,7 @@ type Note12 a = Note Dynamics Chromatic a
 
 
 chrom :: P12 -> Score12 a
-chrom = temp . note MPiano 
+chrom = temp . note Mezzo 
 
 c, d, e, f, g, a, b, 
     cs, ds, es, fs, gs, as, bs,

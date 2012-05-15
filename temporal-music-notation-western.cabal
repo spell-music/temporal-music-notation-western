@@ -22,6 +22,5 @@ Library
   Hs-Source-Dirs:      src/
   Exposed-Modules:
         Temporal.Music.Western
-        Temporal.Music.Western.Dynamics
         Temporal.Music.Western.P12
         Temporal.Music.Western.P13
