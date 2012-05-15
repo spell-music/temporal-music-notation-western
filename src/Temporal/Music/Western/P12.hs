@@ -1,7 +1,7 @@
 -- | Western twelve-tone scale.
 module Temporal.Music.Western.P12(
     module Temporal.Music.Western,
-    Chromatic(..), P12, Score12, Note12,
+    tone,
     -- * Steps
     -- | Step defines a value of type score (hence @Track@), so we can 
     -- transform them on the fly:
@@ -20,57 +20,39 @@ module Temporal.Music.Western.P12(
     --
     -- > import Temporal.Music.Western.P12
     -- >
-    -- > res :: Score12 ()
+    -- > res :: Score ()
     -- > res = stretch 0.2 $ chord [
     -- >            qn $ line [c, c, bn g, e, dbn f],
     -- >            low $ line [c, c, d, low a]]
 )
 where
 
-import Data.Finite
-import Temporal.Music
+import Temporal.Music(Score, temp, note, Step)
 import Temporal.Music.Scales(eqt, pyth, hind, hindFs, hindGb)
 
 import Temporal.Music.Western
 
--- twelve tone
-type P12 = Chromatic 
-
--- | Chromatic twelve tone scale. Default scale is equal temperament.
-data Chromatic = 
-      C  | Cs | D  | Ds | E  | F 
-    | Fs | G  | Gs | A  | As | B
-    deriving (Enum, Bounded, Eq, Show)
-
-instance Finite Chromatic
-
-instance HasScale Chromatic where
-    defScale = const $ eqt c1
-
-type Score12 a = Score (Note12 a)
-
-type Note12 a = Note Dynamics Chromatic a
-
-
-chrom :: P12 -> Score12 a
-chrom = temp . note Mezzo 
+-- | Constructs 'Score' with one note. 'Scale' is set to equal
+-- tempered scale (from 'c1').
+tone :: Step -> Score (Note a)
+tone = note 
 
 c, d, e, f, g, a, b, 
     cs, ds, es, fs, gs, as, bs,
-    cf, df, ef, ff, gf, af, bf :: Score12 a
+    cf, df, ef, ff, gf, af, bf :: Score (Note a)
 
-c    = chrom C
-cs   = chrom Cs
-d    = chrom D
-ds   = chrom Ds
-e    = chrom E
-f    = chrom F
-fs   = chrom Fs
-g    = chrom G
-gs   = chrom Gs
-a    = chrom A
-as   = chrom As
-b    = chrom B
+c    = tone 0
+cs   = tone 1
+d    = tone 2
+ds   = tone 3
+e    = tone 4
+f    = tone 5
+fs   = tone 6
+g    = tone 7
+gs   = tone 8
+a    = tone 9
+as   = tone 10
+b    = tone 11
 
 bs   = c
 es   = f

@@ -17,7 +17,6 @@ Build-Type:    Simple
 Library
   Build-Depends:
         base >= 4, base < 5,
-        finite >= 0.1,
         temporal-music-notation >= 0.2
   Hs-Source-Dirs:      src/
   Exposed-Modules:

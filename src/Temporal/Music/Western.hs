@@ -7,8 +7,6 @@ module Temporal.Music.Western(
     -- dynamic changing of volume and pitch etc, etc) live in this module. 
     module Temporal.Music,
     -- * Volume
-        Dynamics(..), 
-    -- ** Levels
     -- | Dynamics values form 9-level equally spaced grid. 
     -- They are from quietest
     -- to loudest: piano pianissimo (ppp), pianissimo (pp), piano (p),
@@ -26,8 +24,6 @@ module Temporal.Music.Western(
     dim, cresc, 
 
     -- * Score    
-    Score,
-    -- ** Forms    
     rondo, reprise, 
     
     -- * Tempo
@@ -39,55 +35,24 @@ module Temporal.Music.Western(
     Tempo, 
 	lento, largo, larghetto, grave, adagio, adagietto,
     andante, andantino, moderato, allegretto,
-    allegro, vivace, presto, prestissimo,
-   
-    -- * Drum shortcuts
-    bd, wd, hd, qd, ed, sd, td, 
-    dbd, dwd, dhd, dqd, ded, dsd, dtd
+    allegro, vivace, presto, prestissimo 
 ) where
 
-import Data.Finite
 import Temporal.Music
 
-type Score a = Track Double a
-
--- | Traditional volume levels
-data Dynamics =   PPPiano | PPiano | Piano 
-                | MPiano  | Mezzo  | MForte 
-                | Forte   | FForte | FFForte
-    deriving (Show, Eq, Enum, Bounded)
-
-
-instance Finite Dynamics
-
-instance HasDiap Dynamics where
-    defDiap = const $ (1e-5, 1)
-
-
 pppiano, ppiano, piano, mpiano, mforte, forte, fforte, ffforte :: 
-    (Finite (Level a), VolumeLike a) => Score a -> Score a
+    (VolumeLike a) => Score a -> Score a
 
-pppiano = quieter 4
-ppiano  = quieter 3
-piano   = quieter 2
-mpiano  = quieter 1
-
-mforte  = louder 1
-forte   = louder 2
-fforte  = louder 3
-ffforte = louder 4
+pppiano = quieter 4;    ppiano  = quieter 3;    piano   = quieter 2
+mpiano  = quieter 1;    mforte  = louder 1;     forte   = louder 2;
+fforte  = louder 3;     ffforte = louder 4;
 
 ppp', pp', p', mp', mf', f', ff', fff' ::
-    (Finite (Level a), VolumeLike a) => Score a -> Score a
+    (VolumeLike a) => Score a -> Score a
 
-ppp'    = pppiano
-pp'     = ppiano
-p'      = piano
-mp'     = mpiano
-mf'     = mforte
-f'      = forte
-ff'     = fforte
-fff'    = ffforte
+ppp'    = pppiano;  pp'     = ppiano;   p'      = piano;
+mp'     = mpiano;   mf'     = mforte;   f'      = forte;
+ff'     = fforte;   fff'    = ffforte;
 
 -- | diminuendo
 dim :: VolumeLike a => Accent -> Score a -> Score a
@@ -196,26 +161,4 @@ presto      = getTempo prestoRange
 prestissimo :: Double -> Tempo
 prestissimo = getTempo prestissimoRange
 
---------------------------------------------------------------
--- drums
---
 
-bd, wd, hd, qd, ed, sd, td :: Accent -> Score (Drum Dynamics a)
-
-bd = bn . bam
-wd = bam
-hd = hn . bam
-qd = qn . bam
-ed = en . bam
-sd = sn . bam 
-td = tn . bam
-
-dbd, dwd, dhd, dqd, ded, dsd, dtd :: Accent -> Score (Drum Dynamics a) 
-
-dbd = dot . bd
-dwd = dot . wd
-dhd = dot . hd
-dqd = dot . qd
-ded = dot . ed
-dsd = dot . sd
-dtd = dot . td
