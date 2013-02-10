@@ -13,6 +13,12 @@ Stability:     Experimental
 Tested-With:   GHC==6.12.1
 Build-Type:    Simple
 
+Homepage:        https://github.com/anton-k/temporal-music-notation-western
+Bug-Reports:     https://github.com/anton-k/temporal-music-notation-western/issues
+
+Source-repository head
+    Type: git
+    Location: https://github.com/anton-k/temporal-music-notation-western
 
 Library
   Build-Depends:
