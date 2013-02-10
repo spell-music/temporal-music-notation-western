@@ -1,5 +1,5 @@
 Name:          temporal-music-notation-western
-Version:       0.2
+Version:       0.2.2
 Cabal-Version: >= 1.2
 License:       BSD3
 License-file:  LICENSE
@@ -16,8 +16,8 @@ Build-Type:    Simple
 
 Library
   Build-Depends:
-        base >= 4, base < 5,
-        temporal-music-notation >= 0.2
+        base >= 4, base < 5, data-default >= 0.3,
+        temporal-music-notation >= 0.2.2
   Hs-Source-Dirs:      src/
   Exposed-Modules:
         Temporal.Music.Western
