@@ -1,6 +1,6 @@
 Name:          temporal-music-notation-western
 Version:       0.2.2
-Cabal-Version: >= 1.2
+Cabal-Version: >= 1.6
 License:       BSD3
 License-file:  LICENSE
 Author:	       Anton Kholomiov
