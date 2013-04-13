@@ -56,11 +56,11 @@ ff'     = fforte;   fff'    = ffforte;
 
 -- | diminuendo
 dim :: VolumeLike a => Accent -> Score a -> Score a
-dim = envelope . (*) . negate
+dim = withAccent . (*) . negate
 
 -- | crescendo
 cresc :: VolumeLike a => Accent -> Score a -> Score a
-cresc = envelope . (*)
+cresc = withAccent . (*)
 
 ---------------------------------------
 -- forms
