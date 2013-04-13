@@ -27,7 +27,7 @@ module Temporal.Music.Western.P12(
 )
 where
 
-import Temporal.Music(Score, temp, note, Step)
+import Temporal.Music(Score, temp, nx, Step)
 import Temporal.Music.Scales(eqt, pyth, hind, hindFs, hindGb)
 
 import Temporal.Music.Western
@@ -35,7 +35,7 @@ import Temporal.Music.Western
 -- | Constructs 'Score' with one note. 'Scale' is set to equal
 -- tempered scale (from 'c1').
 tone :: Step -> Score (Note a)
-tone = note 
+tone = nx 
 
 c, d, e, f, g, a, b, 
     cs, ds, es, fs, gs, as, bs,

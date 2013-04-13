@@ -12,7 +12,7 @@ module Temporal.Music.Western.P13(
 )    
 where
 
-import Temporal.Music(Score, temp, setScale, c1, note)
+import Temporal.Music(Score, temp, setScale, c1, nx)
 import Temporal.Music.Western
 import Temporal.Music.Scales(eqBP, justBP)
 
@@ -23,7 +23,7 @@ c, cs, cf, d, ds, df, e, es, ef,
 -- | Constructs 'Score' with one note. 'Scale' is set to equal
 -- tempered Bohlen-Pierce scale (from 'c1').
 tone :: Step -> Score (Note a)
-tone = setScale (eqBP c1) . note 
+tone = setScale (eqBP c1) . nx 
 
 c  = tone 0
 cs = tone 1 
