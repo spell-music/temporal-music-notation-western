@@ -21,9 +21,9 @@ module Temporal.Music.Western.P12(
     -- > import Temporal.Music.Western.P12
     -- >
     -- > res :: Score ()
-    -- > res = stretch 0.2 $ chord [
-    -- >            qn $ line [c, c, bn g, e, dbn f],
-    -- >            low $ line [c, c, d, low a]]
+    -- > res = str 0.2 $ har [
+    -- >            qn $ mel [c, c, bn g, e, dbn f],
+    -- >            low $ mel [c, c, d, low a]]
 )
 where
 

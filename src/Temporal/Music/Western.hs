@@ -67,15 +67,15 @@ cresc = withAccent . (*)
 
 -- | rondo form
 --
--- >rondo a b c = line [a, b, a, c, a]
+-- >rondo a b c = mel [a, b, a, c, a]
 rondo :: Score a -> Score a -> Score a -> Score a
-rondo a b c = line [a, b, a, c, a]
+rondo a b c = mel [a, b, a, c, a]
 
 -- | reprise form
 --
--- >reprise a b1 b2 = line [a, b1, a, b2]
+-- >reprise a b1 b2 = mel [a, b1, a, b2]
 reprise :: Score a -> Score a -> Score a -> Score a
-reprise a b c = line [a, b, a, c]
+reprise a b c = mel [a, b, a, c]
 
 ---------------------------------------
 -- tempo
